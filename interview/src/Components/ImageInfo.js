@@ -1,7 +1,7 @@
 import React from 'react'
 import './App/App.css';
-import {Paper} from '@material-ui/core';
-import {useLocation} from 'react-router-dom';
+import {Paper, IconButton} from '@material-ui/core';
+import {useLocation, useNavigate} from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import Table from '@material-ui/core/Table';
@@ -10,7 +10,7 @@ import TableCell from  '@material-ui/core/TableCell';
 import TableContainer from  '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from  '@material-ui/core/TableRow';
-
+import Home from "@material-ui/icons/Home";
 
 function createTableData(name, value) {
     return { name, value};
@@ -18,6 +18,10 @@ function createTableData(name, value) {
 
 
 const ImageInfo = (props) => {
+    let navigate = useNavigate(); 
+    function goHome(){
+        navigate('/')
+    }
     let rows = []
     var imageInfo = ''
     const location = useLocation();
@@ -35,6 +39,12 @@ const ImageInfo = (props) => {
         }
         return (
         <div> <br/> <br/>
+        <IconButton 
+            aria-label="home"
+            onClick = {goHome}
+        >
+            <Home />
+        </IconButton>
         <Card sx={{ maxWidth: 345 }}>
             <CardMedia
                 sx={{ height: 345 }}
@@ -46,8 +56,8 @@ const ImageInfo = (props) => {
             <Table sx={{ minWidth: 650 }} aria-label="Image Info">
                 <TableHead>
                 <TableRow>
-                    <TableCell>Info</TableCell>
-                    <TableCell align="right">Stats</TableCell>
+                    <TableCell>Image Info</TableCell>
+                    <TableCell align="right">Values</TableCell>
                 </TableRow>
                 </TableHead>
                 <TableBody>
