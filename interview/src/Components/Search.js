@@ -2,8 +2,9 @@ import React from 'react'
 import '../Components/App/App.css';
 import { Button, TextField} from '@material-ui/core';
 import SearchIcon from "@material-ui/icons/Search";
+import ImageGrid from './ImageGrid';
 
-var apiInput = ""
+let apiInput = ""
 const callRestApi = async () =>{
     const response = await fetch(apiInput);
     const jsonResponse = await response.json();
@@ -46,6 +47,8 @@ class Search extends React.Component {
             >
             Send
             </Button>
+            <br/> <br/>
+            {this.state.images != undefined ? (<ImageGrid images = {this.state.images}/>): null} 
         </div>
       );
   }
