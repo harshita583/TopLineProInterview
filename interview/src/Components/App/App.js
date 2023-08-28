@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container';
 import Search from '../Search'
 import { BrowserRouter } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
-
+import ImageInfo from '../ImageInfo';
 
 function App (){
   return (
@@ -13,6 +13,7 @@ function App (){
     <BrowserRouter> 
         <Routes>
                 <Route path="/" exact={true} element={<Search/>}/>
+                <Route path="/*" exact={true} element={<ImageInfo/>}/>
         </Routes>
 </BrowserRouter> 
 </Container>

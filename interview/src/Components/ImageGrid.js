@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import '../Components/App/App.css';
 import {ImageList, ImageListItem} from '@material-ui/core';
 import CardActionArea from '@material-ui/core/CardActionArea';
+import ImageInfo from './ImageInfo';
 
 const ImageGrid = (props) => {
     let [state, setState] = useState({images : []});
@@ -17,11 +18,11 @@ const ImageGrid = (props) => {
            
         }
       }, [state]);
-      if (state.images.length!=0){
+
+    if (state.images.length!=0){
         if (Object.keys(state.images).length>0){
             console.log("state full")
         }
-       
     }
     var info = (props.images)
     var additionalInfo = ''
@@ -45,14 +46,14 @@ const ImageGrid = (props) => {
                 onClick = {function(){
                     setState({images: item})
                   }}
-              
             />
             </ImageListItem>
             </CardActionArea>
           
-    ))}
-</ImageList>
+        ))}
+        </ImageList>
+        {state.images.length !=0 ? (<ImageInfo images = {state}/>): null}
         </div>   
-      );
+    );
   }
   export default ImageGrid;
